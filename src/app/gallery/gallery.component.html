@@ -1,0 +1,17 @@
+
+  <div class="search">
+  <input [(ngModel)]="query" (keyup.enter)="onSearch(query)" placeholder="Найти фото"/>
+  <button (click)="onSearch(query)">Поиск</button>
+</div>
+
+<div class="gallery">
+  <div *ngFor="let photo of photos" class="photo">
+    <img [src]="photo.urls.small" [alt]="photo.alt_description" />
+  </div>
+</div>
+
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="page === 1">Предыдущая</button>
+  <button (click)="nextPage()" [disabled]="page === totalPages">Следующая</button>
+</div>
+
